@@ -1,7 +1,7 @@
 # Leg_cpu
 Fully functional 8 Bit CPU written using only logic gates
 
-#TODO
+# TODO
 - Move from logic gate logic to transistor logic.
 - Optimize ALU
 - Create generic cache
