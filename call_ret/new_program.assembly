@@ -1,0 +1,13 @@
+eq|_i|i_ _ _ main
+######
+label countdown
+eq|_i reg0 0 end
+add|_i reg0 _ output
+sub|_i reg0 1 reg0
+call countdown _ _
+label end
+ret _ _ _
+#######
+label main
+add|_i|i_ _ 3 reg0
+call countdown _ _

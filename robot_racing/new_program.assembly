@@ -1,0 +1,17 @@
+label hilbert
+add|_i reg0 1 reg0
+eq|_i reg0 4 end
+xor|_i reg1 3 reg1
+call hilbert 
+add|_i reg1 0 output
+xor|_i reg1 3 reg1
+call  hilbert 
+add|_i reg1 0 output
+call  hilbert 
+xor|_i reg1 1 reg1
+add|_i reg1 0 output
+call  hilbert 
+xor|_i reg1 1 reg1
+label end
+sub|_i reg0 1 reg0
+ret

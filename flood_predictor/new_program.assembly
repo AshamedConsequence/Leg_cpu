@@ -1,0 +1,50 @@
+const height reg2
+const totalHeight reg0
+const acc reg1
+add|_i|i_ 1 _ height
+label input_loop
+sw input _ _
+add|_i reg5 1 reg5
+neq|_i reg5 16 input_loop
+
+label height_measure_loop
+gte|_i height 6 break
+add|_i height 1 height
+add|_i|i_ 0 _ reg5
+add|_i|i_ 0 _ acc
+
+label first_peak_loop
+lw reg4 _ _
+gte reg4 height j_loop
+eq|_i reg5 16 j_loop
+add|_i reg5 1 reg5
+eq|_i|i_ _ _ first_peak_loop
+
+
+label j_loop
+eq|_i reg5 16 height_measure_loop
+label end_peak_loop
+lw reg4 _ _
+lt reg4 height count_loop
+eq|_i reg5 16 count_loop
+add|_i reg5 1 reg5
+eq|_i|i_ _ _ end_peak_loop
+
+label count_loop
+lw reg4 _ _
+gte reg4 height count_loop_end
+eq|_i reg5 16 count_loop_end
+add|_i acc 1 acc
+add|_i reg5 1 reg5
+eq|_i|i_ _ _ count_loop
+label count_loop_end
+gte|_i reg5 16 j_loop_end
+add totalHeight acc totalHeight
+add|_i|i_ _ _ acc
+add|_i reg5 1 reg5
+label j_loop_end
+eq|_i|i_ _ _ j_loop
+
+
+label break
+add|_i totalHeight _ output

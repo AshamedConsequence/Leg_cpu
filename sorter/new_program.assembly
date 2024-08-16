@@ -1,0 +1,24 @@
+label input_loop
+sw input _ _
+add|_i reg5 1 reg5
+neq|_i reg5 15 input_loop
+
+label memory_loop
+add|_i|i_ _ _ reg5
+lw reg0 _ _ # Get first value in list
+add|_i reg5 _ reg1 # Get index of smallest item
+label find_smallest_loop
+add|_i reg5 1 reg5
+lw reg2 _ _
+lt reg2 reg0 switch_items
+label continue
+neq|_i reg5 14 find_smallest_loop
+add|_i reg1 _ reg5
+add|_i reg0 _ output
+sw|i_ 255 _ _
+eq reg0 reg0 memory_loop
+label switch_items
+lw reg0 _ _
+add|_i reg5 _ reg1
+eq reg0 reg0 continue
+

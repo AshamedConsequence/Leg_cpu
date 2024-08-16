@@ -1,0 +1,8 @@
+label start
+add|_i input _ reg0
+eq|_i reg0 0 popping
+push reg0 _ _
+eq|i_|_i _ _ start
+label popping
+pop output _ _
+eq|i_|_i _ _ start

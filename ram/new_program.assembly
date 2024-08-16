@@ -1,0 +1,14 @@
+
+label input_loop
+add|_i input 0 reg0
+sw reg0 _ _
+add|_i reg5 1 reg5
+neq|_i reg5 32 input_loop
+
+
+add|i_|_i 0 0 reg5
+label output_loop
+lw reg0 _ _
+add|_i reg0 0 output
+add|_i reg5 1 reg5
+neq|_i reg5 32 output_loop

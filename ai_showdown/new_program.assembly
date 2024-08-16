@@ -1,0 +1,5 @@
+add|i_|_i 0 3 output
+add|_i input 0 reg0
+sub|_i reg0 5 output
+add|_i input 0  reg0
+sub|_i reg0 1 output

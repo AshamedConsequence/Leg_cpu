@@ -1,0 +1,10 @@
+add|_i input 0 reg0
+label start
+shr|_i reg0 1 reg1
+xor reg0 reg1 reg0
+shl|_i reg0 1 reg1
+xor reg0 reg1 reg0
+shr|_i reg0 2 reg1
+xor reg0 reg1 reg0
+and|_i reg0 3 output
+eq|_i|i_ _ _ start

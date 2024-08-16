@@ -1,0 +1,47 @@
+const disk_count reg0
+const source reg1
+const target reg2
+const spare reg3
+add|_i input _ disk_count # Get Disk Count
+add|_i input _ source # Get Start location
+add|_i input _ target # Get Target location
+add|_i input _ spare # Get Spare Location
+
+label hanoi
+neq|_i reg0 0 recurse
+add|_i source _ output
+add|_i|i_ 5 _ output
+add|_i target _ output 
+add|_i|i_ 5 _ output
+ret _ _ _
+label recurse
+push spare _ _
+push target _ _ 
+push disk_count _ _
+sub|_i disk_count 1 disk_count
+add|_i target _ reg4
+add|_i spare _ target
+add|_i reg4 _ spare
+call  hanoi  _ _
+pop disk_count _ _ 
+pop target _ _ 
+pop spare _ _
+
+add|_i source _ output
+add|_i|i_ 5 _ output
+add|_i target _ output 
+add|_i|i_ 5 _ output
+
+push spare _ _
+push source _ _
+push disk_count _ _
+sub|_i reg0 1 reg0
+
+add|_i source _ reg4
+add|_i spare _ source
+add|_i reg4 _ spare
+call   hanoi _ _
+pop disk_count _ _ 
+pop source _ _ 
+pop spare _ _ 
+ret _ _ _

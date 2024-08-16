@@ -1,0 +1,10 @@
+label start
+sub|_i input 32 output
+label char_loop
+add|_i input _ reg0
+eq|_i reg0 32 end_loop
+add|_i reg0 _ output
+eq|_i|i_ _ _ char_loop
+label end_loop
+add|_i reg0 _ output
+eq|_i|i_ _ _ start
